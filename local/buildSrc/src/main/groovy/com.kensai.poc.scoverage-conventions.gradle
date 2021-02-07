@@ -1,0 +1,16 @@
+plugins {
+    id 'com.kensai.poc.scala-common-conventions' // Apply com.kensai.poc.scala-common-conventions
+    id "org.scoverage" // Add scoverage
+}
+
+ext {
+    scoverageVersion = "1.4.2"
+}
+
+dependencies {
+    scoverage "org.scoverage:scalac-scoverage-plugin_${scalaMajorVersion}:${scoverageVersion}"
+    scoverage "org.scoverage:scalac-scoverage-runtime_${scalaMajorVersion}:${scoverageVersion}"
+}
+
+// Does not work with scala 2.13 (https://github.com/scoverage/gradle-scoverage/issues/106)
+//build.dependsOn 'reportScoverage'
