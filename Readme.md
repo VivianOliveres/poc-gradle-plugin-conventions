@@ -1,15 +1,28 @@
-# POC Gradle Plugin Conventions
+# POC Gradle Plugin Conventions Local
 
 This POC is to demonstrate the use of [convention plugins](https://docs.gradle.org/current/samples/sample_convention_plugins.html) 
-into a sample scala project.
+into a simple scala project (word count).
 
-There is two different implementations: `local` and `remote`.
+## Plugin conventions declaration
 
-## local
+There is 3 convention plugins in the `buildSrc` folder:
+ - [com.kensai.poc.scala-common-conventions](buildSrc/src/main/groovy/com.kensai.poc.scala-common-conventions.gradle): Add default scala conventions (compiler, scala version, [scalafmt](https://scalameta.org/scalafmt/))
+ - [com.kensai.poc.scala-app-conventions](buildSrc/src/main/groovy/com.kensai.poc.scala-app-conventions.gradle): Add default dependencies ([cats](https://typelevel.org/cats/))
+ - [com.kensai.poc.scoverage-conventions](buildSrc/src/main/groovy/com.kensai.poc.scoverage-conventions.gradle): Add [scoverage](https://github.com/scoverage/gradle-scoverage) in build
 
-This project describe how to use convention plugins from the `buildSrc` folder. From the same project.
+## app-word-count project
 
-## remote
+This project count words from a local file.
 
-This project describe how to use convention plugins by defining them into different gradle projects.
-The main use case for this is to reuse these plugins from different projects (ie: not in the same git repository) for a team/organisation.
+It uses some plugins: 
+```gradle
+plugins {
+    id 'com.kensai.poc.scala-app-conventions'
+    id 'com.kensai.poc.scoverage-conventions'
+}
+```
+
+To run it:
+```
+./gradlew run --args=../word-samples/500-words.txt
+```

@@ -1,0 +1,2 @@
+rootProject.name = 'poc-gradle-plugin-conventions'
+include('app-word-count')
