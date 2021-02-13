@@ -1,3 +1,5 @@
+![Scala CI](https://github.com/VivianOliveres/poc-gradle-plugin-conventions/workflows/Scala%20CI/badge.svg?branch=master)
+
 # POC Gradle Plugin Conventions Local
 
 This POC is to demonstrate the use of [convention plugins](https://docs.gradle.org/current/samples/sample_convention_plugins.html) 
